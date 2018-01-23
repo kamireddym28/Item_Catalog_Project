@@ -1,0 +1,39 @@
+{% extends "main.html" %}
+{% block content %}
+	<div class="row head-section">
+		<div class="col-md-10"></div>
+		<div class="col-md-2 text-right">
+			<a href="{{url_for('showLogin')}}">Log in</a>
+		</div>
+	</div>
+	<div class="row banner main">
+		<div class="col-md-11 padding-none">
+			<h1>SmartPhone Catalog</h1>
+		</div>
+	</div>
+	<div class = 'flash'>
+		      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+            <li> <strong> {{ message }} </strong> </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+</div>
+	<div class="row">
+		<div class="col-md-12 text-left patch">
+			<h3>Available Models</h3>
+		</div>
+	</div>
+  {% for smartPhone in smartPhones %}
+		<a href = "{{url_for('showModels', smartPhone_id = smartPhone.id)}}">
+			<div class="row phone_availability">
+					<div class="col-md-10">
+						<h3>{{smartPhone.name}}</h3>
+					</div>
+			</div>
+		</a>
+	{% endfor %}
+{% endblock %}

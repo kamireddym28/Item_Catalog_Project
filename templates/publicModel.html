@@ -1,0 +1,137 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+	<div class="row banner main">
+		<div class="col-md-11  padding-none ">
+			<h1>{{ smartPhone.name }}
+			<figure class="creator">
+				<img src="{{ creator.picture}}">
+				<figcaption>{{ creator.name }}</figcaption>
+			</figure>
+			</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class = "flash">
+				{% with messages = get_flashed_messages() %}
+					{% if messages %}
+						<ul>
+							{% for message in messages %}
+								 <li> <strong> {{ message }} </strong> </li>
+							{% endfor %}
+						</ul>
+					{% endif %}
+				{% endwith %}
+			</div>
+		</div>
+	</div>
+	<div class="row padding-top padding-bottom patch">
+		<div class="col-md-4 padding-none"></div>
+	</div>
+	{% if model!=[] %}
+		<div class="row phone_availability ">
+			<div class="col-md-4">
+				<h2>iPhone</h2>
+					{% for i in model %}
+						{% if i.name.startswith('iPhone') %}
+							<div class="phone-model">
+								<h3>{{i.name}}</h3>
+								<p>{{i.description}}</p>
+								<p>{{i.memory}}</p>
+								<p>{{i.os}}</p>
+								<p class="phone-price">{{i.price}}</p>
+								<a href='{{url_for('editModel', smartPhone_id = smartPhone.id, model_id = i.id ) }}'>Edit</a> |
+								<a href='{{url_for('deleteModel',smartPhone_id = smartPhone.id, model_id = i.id ) }}'>Delete</a>
+							</div>
+						{% endif %}
+					{% endfor %}
+			</div>
+			<div class="col-md-4">
+				<h2>Samsung</h2>
+					{% for i in model %}
+						{% if i.name.startswith('Galaxy') %}
+						<div class="phone-model">
+							<h3>{{i.name}}</h3>
+							<p>{{i.description}}</p>
+							<p>{{i.memory}}</p>
+							<p>{{i.os}}</p>
+							<p class="phone-price">{{i.price}}</p>
+							<a href='{{url_for('editModel', smartPhone_id = smartPhone.id, model_id = i.id ) }}'>Edit</a> |
+							<a href='{{url_for('deleteModel',smartPhone_id = smartPhone.id, model_id = i.id ) }}'>Delete</a>
+						</div>
+						{% endif %}
+					{% endfor %}
+			</div>
+			<div class="col-md-4">
+				<h2>Google Pixel</h2>
+					{% for i in model %}
+						{% if i.name.startswith('Pixel') %}
+						<div class="phone-model">
+							<h3>{{i.name}}</h3>
+							<p>{{i.description}}</p>
+							<p>{{i.memory}}</p>
+							<p>{{i.os}}</p>
+							<p class="phone-price">{{i.price}}</p>
+							<a href='{{url_for('editModel', smartPhone_id = smartPhone.id, model_id = i.id ) }}'>Edit</a> |
+							<a href='{{url_for('deleteModel',smartPhone_id = smartPhone.id, model_id = i.id ) }}'>Delete</a>
+						</div>
+						{% endif %}
+					{% endfor %}
+				</div>
+			</div>
+			<div class="row phone_availability">
+				<div class="col-md-1"></div>
+			</div>
+			<div class="row phone_availability">
+				<div class="col-md-4">
+					<h2>HTC</h2>
+						{% for i in model %}
+							{% if i.name.startswith('HTC') %}
+							<div class="phone-model">
+								<h3>{{i.name}}</h3>
+								<p>{{i.description}}</p>
+								<p>{{i.memory}}</p>
+								<p>{{i.os}}</p>
+								<p class="phone-price">{{i.price}}</p>
+								<a href='{{url_for('editModel', smartPhone_id = smartPhone.id, model_id = i.id ) }}'>Edit</a> |
+								<a href='{{url_for('deleteModel',smartPhone_id = smartPhone.id, model_id = i.id ) }}'>Delete</a>
+							</div>
+							{% endif %}
+						{% endfor %}
+				</div>
+				<div class="col-md-4">
+					<h2>Motorola</h2>
+						{% for i in model %}
+							{% if i.name.startswith('Moto') %}
+							<div class="phone-model">
+								<h3>{{i.name}}</h3>
+								<p>{{i.description}}</p>
+								<p>{{i.memory}}</p>
+								<p>{{i.os}}</p>
+								<p class="phone-price">{{i.price}}</p>
+								<a href='{{url_for('editModel', smartPhone_id = smartPhone.id, model_id = i.id ) }}'>Edit</a> |
+								<a href='{{url_for('deleteModel',smartPhone_id = smartPhone.id, model_id = i.id ) }}'>Delete</a>
+							</div>
+							{% endif %}
+						{% endfor %}
+					</div>
+					<div class="col-md-4">
+						<h2>Microsoft</h2>
+							{% for i in model %}
+								{% if i.name.startswith('Lumia') %}
+								<div class="phone-model">
+									<h3>{{i.name}}</h3>
+									<p>{{i.description}}</p>
+									<p>{{i.memory}}</p>
+									<p>{{i.os}}</p>
+									<p class="phone-price">{{i.price}}</p>
+									<a href='{{url_for('editModel', smartPhone_id = smartPhone.id, model_id = i.id ) }}'>Edit</a> |
+									<a href='{{url_for('deleteModel',smartPhone_id = smartPhone.id, model_id = i.id ) }}'>Delete</a>
+								</div>
+								{% endif %}
+							{% endfor %}
+						</div>
+				</div>
+	{% endif %}
+	{% endblock %}

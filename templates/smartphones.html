@@ -1,0 +1,52 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<div class="row banner main">
+	<div class="col-md-11">
+		<h1>SmartPhone Catalog</h1>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<div class = 'flash'>
+				{% with messages = get_flashed_messages() %}
+					{% if messages %}
+						<ul>
+						{% for message in messages %}
+							<li> <strong> {{ message }} </strong> </li>
+						{% endfor %}
+						</ul>
+					{% endif %}
+				{% endwith %}
+		</div>
+	</div>
+</div>
+	<div class="row padding-top padding-bottom patch ">
+		<div class="col-md-12 text-right">
+			<a href="{{url_for('newSmartphone')}}">
+				<button class="btn btn-default" >
+					<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>Add New Smartphone Models
+				</button>
+			</a>
+			<div class="col-md-4 text-left">
+				<h3>Available Models</h3>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+	{% for smartPhone in smartPhones %}
+		<a href = "{{url_for('showModels', smartPhone_id = smartPhone.id)}}">
+			<div class="row phone_availability">
+				<div class="col-md-1"></div>
+					<div class="col-md-12 restaurant-list">
+						<h3>{{smartPhone.name}}</h3>
+					</div>
+				<div class="col-md-1"></div>
+			</div>
+		</a>
+	{% endfor %}
+	</div>
+</div>
+{% endblock %}

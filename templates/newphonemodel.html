@@ -1,0 +1,33 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+	<div class="row banner main">
+		<div class="col-md-11 padding-none">
+			<h1>New Phone Model</h1>
+		</div>
+	</div>
+	<div class="row patch">
+		<div class="col-md-6 padding-top ">
+			<form action="#" method = "post">
+				<div class="form-group">
+					<label for="name">Name:</label>
+					<input type ="text" maxlength="50" class="form-control" name="name"placeholder="Name of the model">
+					<label for="description">Description:</label>
+					<textarea class="form-control" maxlength="250" rows="3" name="description" placeholder="Description of the model"></textarea>
+					<label for="price">Price:</label>
+					<div class="input-group">
+						<div class="input-group-addon">$</div>
+						<input type ="text" class="form-control" maxlength="10" name="price" placeholder="Price in $">
+					</div>
+					<label for="course">OS:</label>
+          <input type ="text" maxlength="50" class="form-control" name="os"placeholder="Version of the OS">
+          <label for="course">Memory:</label>
+          <input type ="text" maxlength="50" class="form-control" name="memory"placeholder="Memory of the model">
+					<div class = "col-md-11 padding-top"></div>
+					<button type="submit" class="btn btn-default" id="submit" type="submit">
+					<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>Create</button>
+				</div>
+			</form>
+		</div>
+	</div>
+{% endblock %}
