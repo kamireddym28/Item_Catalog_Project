@@ -39,7 +39,7 @@ Database of items and its models is created which can be accessed by using SQL. 
  - Bring the VM online using ``` vagrant up ``` 
  - Log into VM using ``` vagrant ssh ```
 
-## Couresy
+## Courtesy
 
  Full Stack foundations and Authentication and Authorization courses were provided by Udacity
 
