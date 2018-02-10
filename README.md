@@ -47,6 +47,7 @@ Database of items and its models is created which can be accessed by using SQL. 
  
  - Vagrant and VirtualBox are the tools to install and manage the VM*
  - OAUTH2 implementation using google and facebook can done by registering the application in [google developer tools](https://developers.google.com/) and [facebook developer tools](https://developers.facebook.com/)
+ - Replace the google and facebook client id and secret keys with yours where ever needed
  
  
 
