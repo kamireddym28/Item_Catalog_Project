@@ -40,6 +40,9 @@ def showLogin():
 # Third party authentication using google-signin : establishing connection
 @app.route('/gconnect', methods=['POST'])
 def gconnect():
+    """
+    Gathers data from Google Sign In API and places it inside a session variable.
+    """
     # Validate state token
     if request.args.get('state') != login_session['state']:
         response = make_response(json.dumps('Invalid state parameter.'), 401)
