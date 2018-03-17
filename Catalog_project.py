@@ -184,6 +184,9 @@ def gdisconnect():
 # Third party authentication using facebook signin : establishing connection
 @app.route('/fbconnect', methods=['POST'])
 def fbconnect():
+    """
+    Gathers data from Facebook Sign In API and places it inside a session variable.
+    """
     if request.args.get('state') != login_session['state']:
         response = make_response(json.dumps('Invalid state parameter.'), 401)
         response.headers['Content-Type'] = 'application/json'
